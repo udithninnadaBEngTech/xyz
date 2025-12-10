@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "name": "Main Panel Analyzer",
+    "slaveId": 1,
+    "port": "/dev/ttyUSB0",
+    "baudRate": 9600,
+    "dataBits": 8,
+    "stopBits": 1,
+    "parity": "none",
+    "description": "Main power distribution panel",
+    "location": "Electrical Room A",
+    "registers": {
+      "voltage": {
+        "address": 0,
+        "length": 2,
+        "multiplier": 0.1,
+        "description": "Phase voltage (V)"
+      },
+      "current": {
+        "address": 2,
+        "length": 2,
+        "multiplier": 0.01,
+        "description": "Current (A)"
+      },
+      "power": {
+        "address": 4,
+        "length": 2,
+        "multiplier": 0.1,
+        "description": "Active power (kW)"
+      },
+      "frequency": {
+        "address": 6,
+        "length": 1,
+        "multiplier": 0.01,
+        "description": "Frequency (Hz)"
+      },
+      "powerFactor": {
+        "address": 7,
+        "length": 1,
+        "multiplier": 0.001,
+        "description": "Power factor"
+      }
+    },
+    "enabled": true,
+    "alarms": {
+      "voltageHigh": 250,
+      "voltageLow": 200,
+      "currentHigh": 100,
+      "temperatureHigh": 60
+    }
+  },
+  {
+    "id": 1765334119690,
+    "name": "Power Analyzer 2",
+    "slaveId": 1,
+    "port": "COM1",
+    "baudRate": 9600,
+    "dataBits": 8,
+    "stopBits": 1,
+    "parity": "none",
+    "description": "",
+    "location": "",
+    "enabled": true,
+    "registers": {
+      "voltage": {
+        "address": 0,
+        "length": 2,
+        "multiplier": 0.1,
+        "description": "Voltage"
+      },
+      "current": {
+        "address": 2,
+        "length": 2,
+        "multiplier": 0.01,
+        "description": "Current"
+      },
+      "power": {
+        "address": 4,
+        "length": 2,
+        "multiplier": 0.1,
+        "description": "Power"
+      }
+    }
+  },
+  {
+    "id": 1765334132055,
+    "name": "Power Analyzer 3",
+    "slaveId": 1,
+    "port": "COM1",
+    "baudRate": 9600,
+    "dataBits": 8,
+    "stopBits": 1,
+    "parity": "none",
+    "description": "",
+    "location": "",
+    "enabled": true,
+    "registers": {
+      "voltage": {
+        "address": 0,
+        "length": 2,
+        "multiplier": 0.1,
+        "description": "Voltage"
+      },
+      "current": {
+        "address": 2,
+        "length": 2,
+        "multiplier": 0.01,
+        "description": "Current"
+      },
+      "power": {
+        "address": 4,
+        "length": 2,
+        "multiplier": 0.1,
+        "description": "Power"
+      }
+    }
+  }
+]
