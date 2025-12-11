@@ -6,12 +6,8 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
   pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -19,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -35,11 +33,12 @@ jobs:
           cd frontend
           npm run build
 
-      - name: Upload artifact to Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./frontend/dist
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to gh-pages
+        run: |
+          cd frontend/dist
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy to gh-pages [skip ci]" --allow-empty
+          git push -f https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages
